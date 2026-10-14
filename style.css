@@ -54,6 +54,7 @@ button:hover {
 .expense {
     color: red;
 }
+<<<<<<< HEAD
 
 
 /* Income and expense transaction colors */
@@ -80,3 +81,5 @@ button:hover {
     background-color: #f3f4f6;
     transform: translateX(3px);
 }
+=======
+>>>>>>> origin/main

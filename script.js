@@ -4,7 +4,10 @@ const transactionList = document.getElementById("transactionList");
 const incomeDisplay = document.getElementById("totalIncome");
 const expensesDisplay = document.getElementById("totalExpenses");
 const balanceDisplay = document.getElementById("balance");
+<<<<<<< HEAD
 const totalTransactionsDisplay = document.getElementById("totalTransactions");
+=======
+>>>>>>> origin/main
 const dateInput = document.getElementById("date");
 
 dateInput.value = new Date().toLocaleDateString("en-CA");
@@ -38,15 +41,19 @@ function updateDashboard() {
 
     balanceDisplay.textContent =
         "₹" + (totalIncome - totalExpenses).toLocaleString("en-IN");
+<<<<<<< HEAD
       
     totalTransactionsDisplay.textContent = transactions.length;
 
     updateIncomeExpenseChart();
+=======
+>>>>>>> origin/main
 }
 
 function displayTransactions() {
     transactionList.innerHTML = "";
 
+<<<<<<< HEAD
     const categoryFilter =
     document.getElementById("categoryFilter").value;
 
@@ -92,13 +99,19 @@ function displayTransactions() {
 
 
     filteredTransactions.forEach(function(item) {
+=======
+    transactions.forEach(function(item, index) {
+>>>>>>> origin/main
         const transaction = document.createElement("li");
         transaction.classList.add(item.type);
 
         transaction.appendChild(document.createTextNode(
             item.description + " - ₹" +
             item.amount.toFixed(2) + " (" + item.type + ")" +
+<<<<<<< HEAD
             " - category:" + (item.category || "Other") +
+=======
+>>>>>>> origin/main
             (item.date ? " - " + item.date : "") + " "
         ));
 
@@ -106,10 +119,14 @@ function displayTransactions() {
         deleteButton.textContent = "Delete";
 
         deleteButton.addEventListener("click", function() {
+<<<<<<< HEAD
             const originalIndex = transactions.indexOf(item);
             transactions.splice(originalIndex, 1);
 
 
+=======
+            transactions.splice(index, 1);
+>>>>>>> origin/main
             saveTransactions();
             displayTransactions();
             updateDashboard();
@@ -124,6 +141,7 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     const type = document.getElementById("type").value;
+<<<<<<< HEAD
     const category = document.getElementById("category").value;
     const date = document.getElementById("date").value;
 
@@ -131,6 +149,12 @@ form.addEventListener("submit", function(event) {
         document.getElementById("description").value.trim();
 
     const amount = Number(document.getElementById("amount").value);
+=======
+    const description =
+        document.getElementById("description").value.trim();
+    const amount = Number(document.getElementById("amount").value);
+    const date = document.getElementById("date").value;
+>>>>>>> origin/main
 
     if (
         description === "" ||
@@ -143,7 +167,10 @@ form.addEventListener("submit", function(event) {
 
     transactions.push({
         type: type,
+<<<<<<< HEAD
         category: category,
+=======
+>>>>>>> origin/main
         description: description,
         amount: amount,
         date: date
@@ -153,8 +180,11 @@ form.addEventListener("submit", function(event) {
     displayTransactions();
     updateDashboard();
     form.reset();
+<<<<<<< HEAD
     document.getElementById("date").value =
         new Date().toLocaleDateString("en-CA");
+=======
+>>>>>>> origin/main
 });
 
 const savedTransactions = localStorage.getItem("transactions");
@@ -181,6 +211,7 @@ if (savedTransactions !== null) {
 }
 
 displayTransactions();
+<<<<<<< HEAD
 
 document.getElementById("searchInput").addEventListener("input", function() {
     displayTransactions();
@@ -234,3 +265,6 @@ function updateIncomeExpenseChart() {
 }
 
 updateDashboard();
+=======
+updateDashboard();
+>>>>>>> origin/main
